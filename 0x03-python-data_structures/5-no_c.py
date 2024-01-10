@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 
 def no_c(my_string):
-    updated_str = ''
+    small = 'c'
+    big = 'C'
+    new_string = ''
     for i in my_string:
-        if i != 'c' and i != 'C':
-            updated_str += i
-    return (updated_str)
+        if i != small and i != big:
+            new_string  += i
+    return(new_string)
