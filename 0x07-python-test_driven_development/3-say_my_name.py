@@ -1,4 +1,3 @@
-# Author -- Gadoskey
 #!/usr/bin/python3
 """
 
