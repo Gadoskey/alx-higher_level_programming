@@ -1,6 +1,6 @@
+#Author -- Gadoskey
 #!/usr/bin/python3
 """
-
 This module is composed by a function that adds two numbers
 
 """
@@ -17,7 +17,7 @@ def add_integer(a, b=98):
         The addition of the two given numbers
 
     Raises:
-        TypeError: If a or b aren't integer and/or float numbers
+        TypeError: If a or b is not an int and/or float numbers
 
     """
 
@@ -25,6 +25,7 @@ def add_integer(a, b=98):
         raise TypeError("a must be an integer")
     if not isinstance(b, int) and not isinstance(b, float):
         raise TypeError("b must be an integer")
-    a = int(a)
-    b = int(b)
+    if isinstance (a, float) or isinstance (b, float):
+        a = int(a)
+        b = int(b)
     return (a + b)

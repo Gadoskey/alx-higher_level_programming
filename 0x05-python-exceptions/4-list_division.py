@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 def list_division(my_list_1, my_list_2, list_length):
-    """Divides two lists element by element.
+    """Author : Gadoskey
+        Divides two lists element by element.
     Args:
         my_list_1 (list): The first list.
         my_list_2 (list): The second list.
