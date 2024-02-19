@@ -1,9 +1,10 @@
 #!/usr/bin/python3
+""" Author -- Gadoskey"""
 """A class that defines a rectangle"""
 
 
 class Rectangle:
-    """this represents a rectangle"""
+    """A class rectangle"""
 
     def __init__(self, width=0, height=0):
         """Initializing this rectangle class

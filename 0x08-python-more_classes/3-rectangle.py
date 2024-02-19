@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Author -- Gadoskey"""
 """A class that defines a rectangle"""
 
 
@@ -63,6 +64,5 @@ class Rectangle:
         for column in range(self.__height):
             for row in range(self.__width):
                 rectangle += "#"
-            if column < self.__height - 1:
-                rectangle += "\n"
-        return (rectangle)
+            rectangle += "\n"
+        return rectangle[:-1]

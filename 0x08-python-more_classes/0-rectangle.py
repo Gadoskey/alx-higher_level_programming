@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Author -- Gadoskey"""
 """A class that defines a rectangle"""
 
 
