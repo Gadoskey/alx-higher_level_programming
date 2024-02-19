@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Author -- Gadoskey"""
 """A class that defines a rectangle"""
 
 
@@ -65,13 +66,9 @@ class Rectangle:
         rectangle = ""
         for column in range(self.__height):
             for row in range(self.__width):
-                try:
                     rectangle += str(self.print_symbol)
-                except Exception:
-                    rectangle += type(self).print_symbol
-            if column < self.__height - 1:
-                rectangle += "\n"
-        return (rectangle)
+            rectangle += "\n"
+        return (rectangle[:-1])
 
     def __repr__(self):
         """returns a string representation of the rectangle"""

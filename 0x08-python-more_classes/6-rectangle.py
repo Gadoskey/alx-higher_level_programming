@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Author -- Gadoskey"""
 """A class that defines a rectangle"""
 
 
@@ -65,15 +66,14 @@ class Rectangle:
         for column in range(self.__height):
             for row in range(self.__width):
                 rectangle += "#"
-            if column < self.__height - 1:
-                rectangle += "\n"
-        return (rectangle)
+            rectangle += "\n"
+        return (rectangle[:-1])
 
     def __repr__(self):
         """returns a string representation of the rectangle"""
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     def __del__(self):
-        """prints a message for every object that is deleted"""
+        """prints a message for every object deleted"""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
