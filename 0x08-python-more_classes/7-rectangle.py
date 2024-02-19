@@ -66,7 +66,7 @@ class Rectangle:
         rectangle = ""
         for column in range(self.__height):
             for row in range(self.__width):
-                    rectangle += str(self.print_symbol)
+                rectangle += str(self.print_symbol)
             rectangle += "\n"
         return (rectangle[:-1])
 
