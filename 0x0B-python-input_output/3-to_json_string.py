@@ -1,5 +1,5 @@
-"""Gadoskey -- Gadoskey"""
 #!/usr/bin/python3
+# Gadoskey -- Gadoskey
 """This module defines a string-to-JSON function"""
 import json
 

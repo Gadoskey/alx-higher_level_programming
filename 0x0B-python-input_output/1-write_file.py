@@ -1,5 +1,5 @@
-"""Author -- Gadoskey"""
 #!/usr/bin/python3
+# Author -- Gadoskey
 """This module defines function that writes to a file."""
 
 def write_file(filename="", text=""):

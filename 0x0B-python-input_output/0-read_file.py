@@ -1,5 +1,5 @@
-"""Author -- Gadoskey"""
 #!/usr/bin/python3
+# Author -- Gadoskey
 """This module defines a file that reads a file"""
 
 

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# Author - Gadoskey
 """This module defines a JSON file-writing function"""
 import json
 
