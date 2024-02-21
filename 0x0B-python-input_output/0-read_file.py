@@ -1,5 +1,6 @@
+"""Author -- Gadoskey"""
 #!/usr/bin/python3
-"""This module defines a text file-reading function"""
+"""This module defines a file that reads a file"""
 
 
 def read_file(filename=""):
