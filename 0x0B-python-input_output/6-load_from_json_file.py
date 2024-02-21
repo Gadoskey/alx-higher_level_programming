@@ -1,6 +1,7 @@
-"""Author -- Gadoskey"""
 #!/usr/bin/python3
+# Author -- Gadoskey
 """This module defines a JSON file-reading function"""
+
 import json
 
 
