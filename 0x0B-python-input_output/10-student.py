@@ -1,9 +1,10 @@
 #!/usr/bin/python3
+# Author -- Gadoskey
 """This module defines a class Student"""
 
 
 class Student:
-    """Represent a student."""
+    """A class student."""
 
     def __init__(self, first_name, last_name, age):
         """Initializes a new Student
@@ -17,7 +18,7 @@ class Student:
         If attrs is a list of strings, represents only those attributes
         included in the list
         """
-        if (type(attrs) == list and
-                all(type(ele) == str for ele in attrs)):
-            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
-        return self.__dict__
+        if attrs is None:
+            return self.__dict__
+        else:
+            return {attr: getattr(self, attr) for attr in attrs if hasattr(self, attr)}
