@@ -1,19 +1,24 @@
 #!/usr/bin/python3
+# Author -- Gadoskey
 """
-    contains class Square implements class Rectangle
+    A class Square that inherits class Rectangle
 """
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
     """
-        Square implements rectangle
+        Class Square that inherits Rectangle
     """
     def __init__(self, size, x=0, y=0, id=None):
         """
-            initialises Square (overrides Rectangle init)
+            initialises Square
         """
         super().__init__(size, size, x, y, id)
+
+        """Call superclass constructor with appropriate arguments
+            with width and height assigned the value of size
+        """
 
     @property
     def size(self):
@@ -27,7 +32,7 @@ class Square(Rectangle):
         """
             sets the value of size
         """
-        if type(value) != int:
+        if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -43,10 +48,18 @@ class Square(Rectangle):
                 *args -  variable number of no-keyword args
                 **kwargs - variable number of keyworded args
         """
-        if len(args) == 0:
-            for key, val in kwargs.items():
-                self.__setattr__(key, val)
-            return
+        if args:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.size = args[1]
+            if len(args) >= 3:
+                self.x = args[2]
+            if len(args) >= 4:
+                self.y = args[3]
+        else:
+            for key, value in kwargs.items():
+                setattr(key, value)
 
         try:
             self.id = args[0]
@@ -60,15 +73,11 @@ class Square(Rectangle):
         """
             Overloading str function
         """
-        return "[{}] ({}) {}/{} - {}".format(type(self).__name__,
-                                             self.id, self.x, self.y,
-                                             self.width)
+        return "[{}] ({}) {}/{} - {}".format(
+                self.__class__.__name__, self.id, self.x, self.y, self.width)
 
     def to_dictionary(self):
         """
             Returns the dictionary representation of a Square
         """
-        return {'id': getattr(self, "id"),
-                'size': getattr(self, "width"),
-                'x': getattr(self, "x"),
-                'y': getattr(self, "y")}
+        return {'id': self.id, 'size': self.width, 'x': self.x, 'y': self.y}

@@ -46,15 +46,15 @@ class Base:
         """Write the JSON serialization of a list of objects to a file.
 
         Args:
-            list_objs (list): A list of inherited Base instances.
+            list_objs : A list of inherited Base instances.
         """
         filename = cls.__name__ + ".json"
-        with open(filename, "w") as jsonfile:
-            if list_objs is None:
-                jsonfile.write("[]")
-            else:
-                list_dicts = [o.to_dictionary() for o in list_objs]
-                jsonfile.write(Base.to_json_string(list_dicts))
+        if list_objs is None:
+            list_objs = []
+        json_string = cls.to_json_string(
+                [obj.to_dictionary() for obj in list_objs])
+        with open(filename, "w") as f:
+            f.write(json_string)
 
     @staticmethod
     def from_json_string(json_string):
