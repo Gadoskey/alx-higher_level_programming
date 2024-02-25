@@ -139,24 +139,25 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """
             assigns key/value argument to attributes
-            kwargs is skipped if args is not empty
+            kwargs is not checked if args is not empty
             Args:
-                *args -  variable number of no-keyword args
-                **kwargs - variable number of keyworded args
+                *args -  variable number of non-keyworded argument list
+                **kwargs - variable number of keyworded argument list
         """
-        if len(args) == 0:
-            for key, val in kwargs.items():
-                self.__setattr__(key, val)
-            return
-
-        try:
-            self.id = args[0]
-            self.width = args[1]
-            self.height = args[2]
-            self.x = args[3]
-            self.y = args[4]
-        except IndexError:
-            pass
+        if args:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.width = args[1]
+            if len(args) >= 3:
+                self.height = args[2]
+            if len(args) >= 4:
+                self.x = args[3]
+            if len(args) >= 5:
+                self.y = args[4]
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def to_dictionary(self):
         """
