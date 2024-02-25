@@ -59,7 +59,7 @@ class Square(Rectangle):
                 self.y = args[3]
         else:
             for key, value in kwargs.items():
-                setattr(key, value)
+                setattr(self, key, value)
 
     def __str__(self):
         """
