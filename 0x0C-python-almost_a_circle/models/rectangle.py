@@ -123,11 +123,10 @@ class Rectangle(Base):
         rectangle = ""
         print_symbol = "#"
 
-        print("\n" * self.y, end="")
-
-        for i in range(self.height):
-            rectangle += (" " * self.x) + (print_symbol*self.width) + "\n"
-        print(rectangle, end="")
+        for i in range(self.y):
+            print()
+        for _ in range(self.height):
+            print(" " * self.x + print_symbol * self.width)
 
     def __str__(self):
         """
