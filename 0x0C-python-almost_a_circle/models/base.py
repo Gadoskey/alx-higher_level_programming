@@ -1,18 +1,19 @@
 #!/usr/bin/python3
 # base.py
-"""Defines a base model class."""
+# Author - Gadoskey
+"""Defines a Base model class"""
 import json
 import csv
 import turtle
 
 
 class Base:
-    """Represent the base model.
+    """A Base class.
 
-    Represents the "base" for all other classes in project 0x0C*.
+    Represents the "base" for all other classes in project.
 
     Attributes:
-        __nb_objects (int): The number of instantiated Bases.
+        __nb_objects : Private class attribute.
     """
 
     __nb_objects = 0
@@ -21,7 +22,7 @@ class Base:
         """Initialize a new Base.
 
         Args:
-            id (int): The identity of the new Base.
+            id : The identity of the new Base.
         """
         if id is not None:
             self.id = id

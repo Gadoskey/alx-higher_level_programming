@@ -1,13 +1,14 @@
 #!/usr/bin/python3
+# Author -- Gadoskey
 """
-    contains class Rectangle which implements Base.
+    contains class Rectangle which inherits Base.
 """
 from models.base import Base
 
 
 class Rectangle(Base):
     """
-        class Rectangle implements Base.
+        class Rectangle which inherits Base.
         Methods:
             __init__()
     """
@@ -36,7 +37,7 @@ class Rectangle(Base):
             Args:
                 value (int): value to be set.
         """
-        if type(value) != int:
+        if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -58,7 +59,7 @@ class Rectangle(Base):
             Args:
                 value (int): value to be set.
         """
-        if type(value) != int:
+        if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -80,7 +81,7 @@ class Rectangle(Base):
             Args:
                 value (int): value to be set.
         """
-        if type(value) != int:
+        if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -102,7 +103,7 @@ class Rectangle(Base):
             Args:
                 value (int): value to be set.
         """
-        if type(value) != int:
+        if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
@@ -111,7 +112,7 @@ class Rectangle(Base):
 
     def area(self):
         """
-            returns the area of the Rectangle instance.
+            returns the area value of the Rectangle instance.
         """
         return (self.__width * self.__height)
 
@@ -121,12 +122,6 @@ class Rectangle(Base):
         """
         rectangle = ""
         print_symbol = "#"
-
-#        for i in range(self.__height - 1):
-#            rectangle += print_symbol * self.__width + "\n"
-#        rectangle += print_symbol * self.__width
-
-#        print("{}".format(rectangle))
 
         print("\n" * self.y, end="")
 
@@ -138,7 +133,7 @@ class Rectangle(Base):
         """
             returns a string formart of the rectangle
         """
-        return "[{}] ({}) {}/{} - {}/{}".format(type(self).__name__, self.id,
+        return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__, self.id,
                                                 self.__x, self.__y,
                                                 self.__width, self.__height)
 
