@@ -26,7 +26,7 @@ if __name__ == '__main__':
         ORDER BY cities.id ASC
     """
     cursor.execute(query, {'state_name': argv[4]})
-    rows = cur.fetchall()
+    rows = cursor.fetchall()
 
     if rows is not None:
         print(", ".join([row[1] for row in rows]))
