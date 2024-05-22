@@ -30,6 +30,6 @@ if __name__ == '__main__':
 
     if rows is not None:
         print(", ".join([row[1] for row in rows]))
-    
+
     cursor.close()
     db.close()
