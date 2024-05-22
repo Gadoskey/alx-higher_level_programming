@@ -28,7 +28,7 @@ if __name__ == '__main__':
         ORDER BY states.id ASC
     """
     cursor.execute(query, {'name': argv[4]})
-    rows = cur.fetchall()
+    rows = cursor.fetchall()
 
     for row in rows:
         print(row)
