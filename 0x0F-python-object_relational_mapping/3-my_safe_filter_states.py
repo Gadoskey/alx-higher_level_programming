@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """
-This script takes in an argument and
+A script that takes in an argument and
 displays all values in the states
 where `name` matches the argument
-from the database `hbtn_0e_0_usa`.
+from the database `hbtn_0e_0_usa` and makes it
+safe from MySQL injections!
 
-This time the script is safe from
-MySQL injections!
 """
 
 import MySQLdb
@@ -21,22 +20,17 @@ if __name__ == '__main__':
     db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
                          passwd=argv[2], db=argv[3])
 
-    with db.cursor() as cur:
-        cur.execute("""
-            SELECT
-                *
-            FROM
-                states
-            WHERE
-                name LIKE BINARY %(name)s
-            ORDER BY
-                states.id ASC
-        """, {
-            'name': argv[4]
-        })
+    cursor = db.cursor()
+    query = """
+        SELECT *
+        FROM states
+        WHERE name LIKE BINARY %(name)s
+        ORDER BY states.id ASC
+    """
+    cursor.execute(query, {'name': argv[4]})
+    rows = cur.fetchall()
 
-        rows = cur.fetchall()
-
-    if rows is not None:
-        for row in rows:
-            print(row)
+    for row in rows:
+        print(row)
+    cursor.close()
+    db.close()
