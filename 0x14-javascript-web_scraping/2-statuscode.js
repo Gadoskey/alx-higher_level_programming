@@ -11,7 +11,6 @@ if (args.length !== 1) {
   process.exit(1);
 }
 
-
 const url = args[0];
 
 // Making a GET request to the specified URL
@@ -20,5 +19,5 @@ request.get(url, (error, response) => {
     console.error('Error:', error);
     process.exit(1);
   }
-  console.log('code: ' + response.statusCode)
+  console.log('code: ' + response.statusCode);
 });
