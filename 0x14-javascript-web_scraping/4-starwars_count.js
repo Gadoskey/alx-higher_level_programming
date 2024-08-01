@@ -5,21 +5,34 @@ const request = require('request');
 
 // Processing Command-Line Arguments. the first two arguments are stripped.
 const args = process.argv.slice(2);
-const url = 'https://swapi-api.alx-tools.com/api/films/';
-const id = args[0];
+
 if (args.length !== 1) {
   console.log('Usage: node script.js <url>');
   process.exit(1);
 }
 
+const url = args[0];
+//const id = 18;
+//const fullUrl = `${url}${id}`;
 // Making a GET request to the specified URL
-request(url + id, function (err, response, body) {
+request(url, function (err, response, body) {
   if (err) {
     console.log(err);
   } else if (response.statusCode === 200) {
     const jsObject = JSON.parse(body);
-    console.log(jsObject.title);
+    let charWedgeUrl = jsObject.results[6][8];
+    console.log(charWedgeUrl);
   } else {
     console.log('Error code: ' + response.statusCode);
   }
 });
+/*request(fetchWedgeUrl, function (err, response, body){
+  if (err) {
+    console.log(err);
+  } else if (response.statusCode === 200) {
+    const charObj = JSON.parse(body);
+    console.log(charObj.films.length);
+  } else {
+    console.log('Error code: ' + response.statusCode);
+  }
+});*/
