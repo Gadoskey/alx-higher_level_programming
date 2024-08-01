@@ -2,37 +2,24 @@
 
 // Importing the request Module
 const request = require('request');
+const url = process.argv[2];
 
-// Processing Command-Line Arguments. the first two arguments are stripped.
-const args = process.argv.slice(2);
-
-if (args.length !== 1) {
-  console.log('Usage: node script.js <url>');
-  process.exit(1);
-}
-
-const url = args[0];
-//const id = 18;
-//const fullUrl = `${url}${id}`;
-// Making a GET request to the specified URL
 request(url, function (err, response, body) {
   if (err) {
     console.log(err);
   } else if (response.statusCode === 200) {
-    const jsObject = JSON.parse(body);
-    let charWedgeUrl = jsObject.results[6][8];
-    console.log(charWedgeUrl);
+    const films = JSON.parse(body).results;
+    let count = 0;
+    for (const filmIndex in films) {
+      const filmChars = films[filmIndex].characters;
+      for (const charIndex in filmChars) {
+        if (filmChars[charIndex].includes('18')) {
+          count++;
+        }
+      }
+    }
+    console.log(count);
   } else {
-    console.log('Error code: ' + response.statusCode);
+    console.log('An error occured. Status code: ' + response.statusCode);
   }
 });
-/*request(fetchWedgeUrl, function (err, response, body){
-  if (err) {
-    console.log(err);
-  } else if (response.statusCode === 200) {
-    const charObj = JSON.parse(body);
-    console.log(charObj.films.length);
-  } else {
-    console.log('Error code: ' + response.statusCode);
-  }
-});*/
